@@ -10,7 +10,7 @@ import com.segunfrancis.randm.R
 import com.segunfrancis.randm.databinding.ItemCharacterBinding
 import com.segunfrancis.randm.util.loadImage
 
-class CharacterAdapter(private val imageLoader: ImageLoader) :
+class CharacterAdapter(private val imageLoader: ImageLoader, private val onItemClick: (String?) -> Unit) :
     ListAdapter<Character, CharacterAdapter.CharacterViewHolder>(DIFF_UTIL) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharacterViewHolder {
@@ -29,10 +29,11 @@ class CharacterAdapter(private val imageLoader: ImageLoader) :
 
     inner class CharacterViewHolder(private val binding: ItemCharacterBinding) :
         RecyclerView.ViewHolder(binding.root) {
+
         fun bind(character: Character) = with(binding) {
             characterName.text = character.name
             characterImage.loadImage(character.image, imageLoader)
-            root.setOnClickListener { character.onClick?.invoke(character) }
+            root.setOnClickListener { onItemClick.invoke(character.id) }
         }
     }
 

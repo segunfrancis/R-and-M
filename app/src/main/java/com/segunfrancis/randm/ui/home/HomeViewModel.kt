@@ -44,8 +44,16 @@ class HomeViewModel(private val client: RemoteClient) : ViewModel() {
             _uiState.postValue(Result.Error(response.errors?.get(0)?.message))
         }
     }
+
+    fun toDetail(id: String?) {
+        _interaction.postValue(
+            HomeAction.Navigate(
+                HomeFragmentDirections.toDetailFragment(id)
+            )
+        )
+    }
 }
 
 sealed class HomeAction {
-    data class Navigate(val destination: NavDirections): HomeAction()
+    data class Navigate(val destination: NavDirections) : HomeAction()
 }

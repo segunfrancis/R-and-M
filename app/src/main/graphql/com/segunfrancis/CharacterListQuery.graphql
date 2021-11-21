@@ -1,0 +1,9 @@
+query CharacterListQuery {
+    characters {
+        results {
+            id
+            name
+            image
+        }
+    }
+}

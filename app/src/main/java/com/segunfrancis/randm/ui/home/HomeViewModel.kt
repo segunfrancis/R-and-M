@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.NavDirections
-import com.segunfrancis.randm.data.remote.RemoteClient
+import com.segunfrancis.randm.data.remote.IRemoteClient
 import com.segunfrancis.randm.util.Result
 import com.segunfrancis.randm.util.SingleLiveEvent
 import com.segunfrancis.randm.util.mapToCharacter
@@ -13,7 +13,7 @@ import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
 import timber.log.Timber
 
-class HomeViewModel(private val client: RemoteClient) : ViewModel() {
+class HomeViewModel(private val client: IRemoteClient) : ViewModel() {
 
     private val _uiState = MutableLiveData<Result<List<Character?>>>()
     val uiState: LiveData<Result<List<Character?>>> = _uiState

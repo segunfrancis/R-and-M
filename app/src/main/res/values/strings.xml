@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">R and M</string>
+    <string name="text_name">Name:</string>
+    <string name="text_species">Species:</string>
+    <string name="text_gender">Gender:</string>
+    <string name="text_created_at">Created At:</string>
+    <string name="text_status">Status:</string>
+    <string name="text_episodes">Episodes:</string>
 </resources>

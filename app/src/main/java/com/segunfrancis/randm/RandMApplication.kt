@@ -2,6 +2,7 @@ package com.segunfrancis.randm
 
 import android.app.Application
 import com.segunfrancis.randm.di.mainModule
+import com.segunfrancis.randm.ui.detail.di.detailModule
 import com.segunfrancis.randm.ui.home.di.homeModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -17,7 +18,8 @@ class RandMApplication : Application() {
             androidLogger(level = Level.INFO)
             modules(
                 mainModule,
-                homeModule
+                homeModule,
+                detailModule
             )
         }
         if (BuildConfig.DEBUG) {

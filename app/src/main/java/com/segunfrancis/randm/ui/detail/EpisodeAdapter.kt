@@ -8,7 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.segunfrancis.randm.R
 import com.segunfrancis.randm.databinding.ItemEpisodeBinding
 
-class DetailAdapter : ListAdapter<Episode, DetailAdapter.DetailViewHolder>(DIFF_UTIL) {
+class EpisodeAdapter(private val onEpisodeClick: (String?) -> Unit) :
+    ListAdapter<Episode, EpisodeAdapter.DetailViewHolder>(DIFF_UTIL) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DetailViewHolder {
         return DetailViewHolder(
@@ -24,12 +25,12 @@ class DetailAdapter : ListAdapter<Episode, DetailAdapter.DetailViewHolder>(DIFF_
         holder.bind(getItem(position))
     }
 
-    class DetailViewHolder(private val binding: ItemEpisodeBinding) :
+    inner class DetailViewHolder(private val binding: ItemEpisodeBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(episode: Episode) = with(binding) {
             episodeName.text = episode.name
             episodeNumber.text = episode.id
-            root.setOnClickListener {  }
+            root.setOnClickListener { onEpisodeClick.invoke(episode.id) }
         }
     }
 

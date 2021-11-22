@@ -149,11 +149,20 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="16dp"
+            android:scrollbars="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
             app:layout_constraintStart_toStartOf="@id/guidelineStart"
             app:layout_constraintTop_toBottomOf="@id/episode_label"
             tools:listitem="@layout/item_episode" />
+
+        <include
+            android:id="@+id/loading_indicator"
+            layout="@layout/layout_loader"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guidelineStart"

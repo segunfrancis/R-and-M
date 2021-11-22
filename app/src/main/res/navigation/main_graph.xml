@@ -9,7 +9,7 @@
         android:id="@+id/homeFragment"
         android:name="com.segunfrancis.randm.ui.home.HomeFragment"
         android:label="Home"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/toDetailFragment"
             app:destination="@id/detailFragment"
@@ -22,11 +22,25 @@
         android:id="@+id/detailFragment"
         android:name="com.segunfrancis.randm.ui.detail.DetailFragment"
         android:label="Details"
-        tools:layout="@layout/fragment_detail" >
+        tools:layout="@layout/fragment_detail">
         <argument
             android:name="id"
+            android:defaultValue="null"
             app:argType="string"
-            app:nullable="true"
-            android:defaultValue="null" />
+            app:nullable="true" />
+        <action
+            android:id="@+id/toEpisodeDetailFragment"
+            app:destination="@id/episodeDetailFragment" />
     </fragment>
+    <dialog
+        android:id="@+id/episodeDetailFragment"
+        android:name="com.segunfrancis.randm.ui.episode_detail.EpisodeDetailFragment"
+        android:label="fragment_episode_detail"
+        tools:layout="@layout/fragment_episode_detail">
+        <argument
+            android:name="id"
+            android:defaultValue="null"
+            app:argType="string"
+            app:nullable="true" />
+    </dialog>
 </navigation>
